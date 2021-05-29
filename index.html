@@ -1,0 +1,30 @@
+<h1>li</h1>
+<p>world's worst URL tool</p>
+
+link:
+<input type="text" id="input"/>
+<button onclick="go()">go</button>
+<br />
+<a id="link"></a>
+<p>api:</p>
+<pre>
+GET https://lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll.violet.wtf/create?link=https://google.com&length=2000
+</pre>
+
+<script>
+    const API_URL = "http://localhost:5000/";
+
+    function go() {
+        fetch(
+            API_URL +
+            'create?length=2000&link=' +
+            encodeURIComponent(document.getElementById('input').value)
+        )
+            .then(res => res.text())
+            .then(text => {
+                const linkElem = document.getElementById('link');
+                linkElem.href = text;
+                linkElem.innerText = text;
+            });
+    }
+</script>
