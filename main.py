@@ -64,7 +64,7 @@ def read_url(link: str) -> str:
     return url
 
 
-@app.route('')
+@app.route('/')
 def home():
     return flask.redirect(HOMEPAGE_URL)
 
